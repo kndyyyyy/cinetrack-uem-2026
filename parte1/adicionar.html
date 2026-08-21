@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar filme - Cinetrack</title>
+</head>
+<body>
+    <fieldset>
+        <nav>
+            <a href="index.html">← Voltar</a>
+        </nav>
+        <h1>Adicionar Filme</h1>
+        
+            <form id="form-filme">
+
+                <label>Titulo</label>
+                <input type="text" value="" required>
+
+                <label>Ano</label>
+                <input type="number" value="" min="1888" max="2030" step="1" required>
+
+                <label>Gênero</label>
+                <input type="text" value="" required>
+
+                <label>URL do poster</label>
+                <input type="text" value="">
+
+                <label>Status</label>
+                <select required>
+                    <option value="">Quero assistir</option>
+                    <option value="">Assistido</option>
+                    <option value="">Drop</option>
+                </select>
+
+                <label>Nota (1 a 5)</label>
+                <select>
+                    <option value="">5</option>
+                    <option value="">4</option>
+                    <option value="">3</option>
+                    <option value="">2</option>
+                    <option value="">1</option>
+                </select>
+
+                <label>Comentario</label>
+                <textarea rows="5" cols="40"></textarea>
+
+                <button type="button">Cancelar</button>
+                <button type="submit">Salvar</button>
+
+            </form>
+
+    </fieldset>
+</body>
+</html>
