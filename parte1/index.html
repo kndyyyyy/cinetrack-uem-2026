@@ -6,35 +6,123 @@
     <title>CineTrack</title>
 </head>
 <body>
-    <nav>
-        <a href="adicionar.html">+ Adicionar filme</a>
+    <header>
+        <h1>CineTrack</h1>
+        <p><strong>CineTrack</strong> é seu gerenciador pessoal de filmes: registre o que já viu, o que está vendo e o que quer ver.</p>
+        <input type="search" aria-label="Buscar filme">
+        <button type="button">+ Adicionar filme</button>
+    </header>
+
+    <nav aria-label="Filtros de status">
+        <button class="ativo">Todos</button>
+        <button>Assistido</button>
+        <button>Assistindo</button>
+        <button>Quero assistir</button>
     </nav>
-    <h1>CineTrack</h1>
-    <p><strong>CineTrack</strong> é seu gerenciador pessoal de filmes: registre o que já viu, o que está vendo e o que quer ver.</p>
 
-    <!-- lista de status disponiveis para os filmes -->
-    <h2>Status possíveis</h2>
-    <ul id="lista-status">
-        <li class="item-status">Assistido</li>
-        <li class="item-status">Assistindo</li>
-        <li class="item-status">Quero assistir</li>
-    </ul>
+    <main>
+        <br>
+        <section id="lista" aria-live="polite">
+            <article class="card"> 
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/yArr9VMatOTEMRZ0H1s8pNHQW78.jpg"
+                alt="Poster La La Land" width="200" height="300">
+                <h2>La La Land</h2>
+                <p>2017 · Comédia, Drama, Romance</p>
+                <p>Nota: ★★★★★</p>
+                <span class="badge">
+                    Assistido
+                </span>
+                <button>Editar</button>
+                <button>Remover</button>
+            </article>
 
-    <!-- Lista de filme favoritos -->
-    <h2>Meus filmes favoritos</h2>
-    <ol>
-        <li>A Origem</li>
-        <li>Interestelar</li>
-        <li>Parasita</li>
-    </ol>
+            <br>
 
-    <!-- Informacoes do filme -->
-    <h2>Sobre A Origem</h2>
-    <dl>
-    <dt>Diretor</dt> <dd>Christopher Nolan</dd>
-    <dt>Ano</dt> <dd>2010</dd>
-    <dt>Gênero</dt> <dd>Ficção científica</dd>
-    </dl>
+            <article class="card"> 
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/wZhxtK387ZLFQQ38l1Z3ELdszVa.jpg"
+                alt="Poster Homem-Aranha: Um Novo Dia" width="200" height="300">
+                <h2>Homem-Aranha: Um Novo Dia</h2>
+                <p>2026 · Ficção Científica, Ação, Aventura</p>
+                <p>Nota: ★★★★★</p>
+                <span class="badge">
+                    Assistido
+                </span>
+                <button>Editar</button>
+                <button>Remover</button><br>
+            </article>
+
+            <br>
+
+            <article class="card">
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/8xAwcL3ALTHzHMKkVIApiKwVEzt.jpg"
+                alt="Poster Kimi no Suizou wo Tabetai" width="200" height="300">
+                <br>
+                <h2>Kimi no Suizou wo Tabetai</h2>
+                <p>2018 · Animação, Drama, Romance</p>
+                <p>Nota: ★★★★★</p>
+                <span class="badge">
+                    Assistido
+                </span>
+                <button>Editar</button>
+                <button>Remover</button>
+            </article>
+
+            <br>
+
+            <article class="card"> 
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/tuFaWiqX0TXoWu7DGNcmX3UW7sT.jpg"
+                alt="Poster Koe no Katachi" width="200" height="300">
+                <br>
+                <h2>Koe no Katachi</h2>
+                <p>2019 · Animação, Drama, Romance</p>
+                <p>Nota: ★★★★★</p>
+                <span class="badge">
+                    Assistido
+                </span>
+                <button>Editar</button>
+                <button>Remover</button>
+            </article>
+
+            <br>
+
+            <article class="card"> 
+                <img src="https://image.tmdb.org/t/p/w600_and_h900_face/gfnXixcGC060QcG6JPxN6AMdVsq.jpg"
+                alt="Poster Cidade de Deus" width="200" height="300">
+                <br>
+                <h2>Cidade de Deus</h2>
+                <p>2002 · Drama, Crime</p>
+                <p>Nota: ★★★★☆</p>
+                <span class="badge">
+                    Assistido
+                </span>
+                <button>Editar</button>
+                <button>Remover</button>
+            </article>
+
+            <br>
+
+            <article class="card"> 
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/atJxZfCaQ7kXRFSfbm8cqAKkns7.jpg"
+                alt="Gato de Botas 2: O Último Pedido" width="200" height="300">
+                <br>
+                <h2>Gato de Botas 2: O Último Pedido</h2>
+                <p>2023 · Animação, Aventura, Fantasia, Comédia e Família</p>
+                <p>Nota: ★★★★★</p>
+                <span class="badge">
+                    Assistido
+                </span>
+                <button>Editar</button>
+                <button>Remover</button>
+            </article>
+        </section>
+    </main>
+    
+    <br>
+
+    <footer>
+        <p>CineTrack - UEM</p>
+        <a href="adicionar.html">+ Adicionar filme</a>
+    </footer>
 
     <p>&copy; 2025 CineTrack</p>
 </body>
