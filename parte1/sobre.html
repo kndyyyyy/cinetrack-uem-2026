@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - CineTrack</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">← Voltar</a>
+    </nav>
+    
+    <main>
+        <h1>Sobre o CineTrack</h1>
+        <p><strong>CineTrack</strong> é seu gerenciador pessoal de filmes: registre o que já viu, o que está vendo e o que quer ver.</p>
+
+        <section id="filmes-cadastrados">
+            <h2>Filmes cadastrados</h2>
+            <table>
+                <caption>Lista de filmes do conjunto canônico CineTrack</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Ano</th>
+                        <th scope="col">Gênero</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>La La Land</td>
+                        <td>2017</td>
+                        <td>Comédia, Drama, Romance</td>
+                        <td>Assistido</td>
+                    </tr>
+                    <tr>
+                        <td>Homem-Aranha: Um Novo Dia</td>
+                        <td>2026</td>
+                        <td>Ficção Científica, Ação, Aventura</td>
+                        <td>Assistido</td>
+                    </tr>
+                    <tr>
+                        <td>Kimi no Suizou wo Tabetai</td>
+                        <td>2018</td>
+                        <td>Animação, Drama, Romance</td>
+                        <td>Assistido</td>
+                    </tr>
+                    <tr>
+                        <td>Koe no Katachi</td>
+                        <td>2019</td>
+                        <td>Animação, Drama, Romance</td>
+                        <td>Assistido</td>
+                    </tr>
+                    <tr>
+                        <td>Cidade de Deus</td>
+                        <td>2002</td>
+                        <td>Drama, Crime</td>
+                        <td>Assistido</td>
+                    </tr>
+                    <tr>
+                        <td>Gato de Botas 2: O Último Pedido</td>
+                        <td>2023</td>
+                        <td>Animação, Aventura, Comédia</td>
+                        <td>Assistido</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="planejamento-interface">
+            <h2>Rascunho da Tela</h2>
+            <figure>
+                <img src="../docs/rascunho-tela.jpg" alt="Rascunho em papel ilustrando o layout inicial da tela principal">
+                <figcaption>Rascunho em papel da interface inicial do CineTrack demonstrando a disposição do cabeçalho,
+                     filtros de navegação e listagem de filmes.</figcaption>
+            </figure>
+        </section>
+
+        <section id="estrutura-dados">
+            <h2>Organização das Informações</h2>
+            <details>
+                <summary>Como os dados são organizados</summary>
+                <ol>
+                    <li><strong>Título:</strong> texto identificando o filme, obrigatório.</li>
+                    <li><strong>Ano:</strong> ano de lançamento do filme (entre 1888 e 2030), obrigatório.</li>
+                    <li><strong>Gênero:</strong> gênero do filme, obrigatório.</li>
+                    <li><strong>URL do poster:</strong> link para a imagem do poster do filme</li>
+                    <li><strong>Status:</strong> situação atual do filme (Assistido, Assistindo, Quero assistir, Drop), obrigatório.</li>
+                    <li><strong>Nota:</strong> avaliação de 1 a 5 estrelas.</li>
+                    <li><strong>Comentário:</strong> anotação e resenha em texto livre sobre o filme.</li>
+                </ol>
+            </details>
+        </section>
+    </main>
+    <footer>
+        <p>CineTrack - UEM</p>
+        <a href="index.html">Página Inicial</a>
+        <br>
+        <a href="adicionar.html">+ Adicionar filme</a>
+    </footer>
+
+    <p>&copy; 2025 CineTrack</p>
+
+</body>
+</html>
