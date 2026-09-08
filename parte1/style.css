@@ -1,0 +1,46 @@
+/*Paletas Cores
+Primária: #561643
+Acento: #6c0e23
+Neutro: #f3ffb9
+*/
+
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px; 
+}
+
+body { 
+    font-family: system-ui, sans-serif;
+    line-height: 1.5; 
+    background-color: #f7f7f7;
+    color: #222222;
+}
+
+img { 
+    max-width: 100%;
+    display: block;
+}
+
+button { 
+    font: inherit;
+    cursor: pointer;
+}
+
+header {
+    background-color: #561643;
+    color: #ffffff;
+    padding: 16px 24px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
