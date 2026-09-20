@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap');
 /*Paletas Cores
-Primária: #561643
-Acento: #6c0e23
-Neutro: #f3ffb9
+Primária: #564787
+Acento: #dbcbd8
+Neutro: #f2fdff
 */
 
 * { 
@@ -32,15 +33,101 @@ button {
 }
 
 header {
-    background-color: #561643;
+    font-family: 'Cinzel', sans-serif;
+    background-color: #564787;
     color: #ffffff;
-    padding: 16px 24px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px
 }
 
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.barra-pesquisa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.barra-pesquisa input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #cccccc;
+    font-size: 0.95rem;
+}
+
+header nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+header button {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #dbcbd8;
+    color: #101935;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+header nav button.ativo {
+    background-color: #101935;
+    color: #dbcbd8
+}
+
+#lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 24px;
+    justify-content: center;
+}
+
+
 .card {
+    font-family: 'Space Grotesk', sans-serif;
+    width: 200px;
     background-color: #ffffff;
     padding: 16px;
     border: 1px solid #dddddd;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card .acoes {
+    margin-top: auto;
+    display: flex;
+    gap: 8px;
+}
+
+.card .acoes button {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    gap: 8px;
+}
+
+footer {
+    padding: 32px 24px;
+    text-align: center;
 }

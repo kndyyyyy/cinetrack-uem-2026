@@ -13,82 +13,99 @@
 <body>
     <header>
         <h1>CineTrack</h1>
-        <input type="search" aria-label="Buscar filme">
-        <button type="button">+ Adicionar filme</button>
+        <div class="barra-pesquisa">
+            <input type="search" aria-label="Buscar filme">
+            <button type="button">+ Adicionar filme</button>
+        </div>
+        <nav aria-label="Filtros de status">
+            <button class="ativo">Todos</button>
+            <button>Assistido</button>
+            <button>Assistindo</button>
+            <button>Quero assistir</button>
+            <button>Drop</button>
+        </nav>
     </header>
 
-    <nav aria-label="Filtros de status">
-        <button class="ativo">Todos</button>
-        <button>Assistido</button>
-        <button>Assistindo</button>
-        <button>Quero assistir</button>
-        <button>Drop</button>
-    </nav>
-
     <main>
-        <br>
         <section id="lista" aria-live="polite">
             <article class="card"> 
-                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/yArr9VMatOTEMRZ0H1s8pNHQW78.jpg"
-                alt="Poster La La Land" width="200" height="300">
-                <h2>La La Land</h2>
-                <p>2017 · Comédia, Drama, Romance</p>
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/9e3Dz7aCANy5aRUQF745IlNloJ1.jpg"
+                alt="Poster A Origem" width="200" height="300">
+                <h2>A Origem</h2>
+                <p>2010 · Ação, Ficção científica e Aventura</p>
                 <p>Nota: ★★★★★</p>
                 <span class="badge">
                     Assistido
                 </span>
-                <button>Editar</button>
-                <button>Remover</button>
+                <div class="acoes">
+                    <button type="button">Editar</button>
+                    <button type="button">Remover</button>
+                </div>
             </article>
 
-            <br>
 
             <article class="card"> 
-                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/wZhxtK387ZLFQQ38l1Z3ELdszVa.jpg"
-                alt="Poster Homem-Aranha: Um Novo Dia" width="200" height="300">
-                <h2>Homem-Aranha: Um Novo Dia</h2>
-                <p>2026 · Ficção Científica, Ação, Aventura</p>
-                <p>Nota: ★★★★★</p>
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg"
+                alt="Poster Parasita" width="200" height="300">
+                <h2>Parasita</h2>
+                <p>2019 · Comédia, Thriller e Drama </p>
+                <p>Nota: ★★★★☆</p>
                 <span class="badge">
                     Assistido
                 </span>
-                <button>Editar</button>
-                <button>Remover</button><br>
+                <div class="acoes">
+                    <button type="button">Editar</button>
+                    <button type="button">Remover</button>
+                </div>
             </article>
-
-            <br>
 
             <article class="card">
-                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/8xAwcL3ALTHzHMKkVIApiKwVEzt.jpg"
-                alt="Poster Kimi no Suizou wo Tabetai" width="200" height="300">
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/imcOp1kJsCsAFCoOtY5OnPrFbAf.jpg"
+                alt="Poster O Auto da Compadecida" width="200" height="300">
                 <br>
-                <h2>Kimi no Suizou wo Tabetai</h2>
-                <p>2018 · Animação, Drama, Romance</p>
+                <h2>O Auto da Compadecida</h2>
+                <p>2000 · Comédia, Drama, Fantasia e Romance</p>
                 <p>Nota: ★★★★★</p>
                 <span class="badge">
                     Assistido
                 </span>
-                <button>Editar</button>
-                <button>Remover</button>
+                <div class="acoes">
+                    <button type="button">Editar</button>
+                    <button type="button">Remover</button>
+                </div>
             </article>
-
-            <br>
 
             <article class="card"> 
-                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/tuFaWiqX0TXoWu7DGNcmX3UW7sT.jpg"
-                alt="Poster Koe no Katachi" width="200" height="300">
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/hH5lhwd8RzvVGbpRixPvIOltZLt.jpg"
+                alt="Poster Duna: Parte Dois" width="200" height="300">
                 <br>
-                <h2>Koe no Katachi</h2>
-                <p>2019 · Animação, Drama, Romance</p>
+                <h2>Duna: Parte Dois</h2>
+                <p>2024 · Ficção científica e Aventura</p>
+                <p>Nota: ★★★★☆</p>
+                <span class="badge">
+                    Assistido
+                </span>
+                <div class="acoes">
+                    <button type="button">Editar</button> 
+                    <button type="button">Remover</button>
+                </div>
+            </article>
+
+            <article class="card"> 
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/tR1XVa5bxgdh2bRw2u0DzrgkO2l.jpg"
+                alt="Poster Interestelar" width="200" height="300">
+                <br>
+                <h2>Interestelar</h2>
+                <p>2014 · Ficção científica, Aventura e Drama</p>
                 <p>Nota: ★★★★★</p>
                 <span class="badge">
                     Assistido
                 </span>
-                <button>Editar</button>
-                <button>Remover</button>
+                <div class="acoes">
+                    <button type="button">Editar</button>
+                    <button type="button">Remover</button>
+                </div>
             </article>
-
-            <br>
 
             <article class="card"> 
                 <img src="https://image.tmdb.org/t/p/w600_and_h900_face/gfnXixcGC060QcG6JPxN6AMdVsq.jpg"
@@ -100,37 +117,20 @@
                 <span class="badge">
                     Assistido
                 </span>
-                <button>Editar</button>
-                <button>Remover</button>
-            </article>
-
-            <br>
-
-            <article class="card"> 
-                <img src="https://www.themoviedb.org/t/p/w600_and_h900_face/atJxZfCaQ7kXRFSfbm8cqAKkns7.jpg"
-                alt="Gato de Botas 2: O Último Pedido" width="200" height="300">
-                <br>
-                <h2>Gato de Botas 2: O Último Pedido</h2>
-                <p>2023 · Animação, Aventura, Fantasia, Comédia e Família</p>
-                <p>Nota: ★★★★★</p>
-                <span class="badge">
-                    Assistido
-                </span>
-                <button>Editar</button>
-                <button>Remover</button>
+                <div class="acoes">
+                    <button type="button">Editar</button>
+                    <button type="button">Remover</button>
+                </div>
             </article>
         </section>
     </main>
-    
-    <br>
 
     <footer>
         <p>CineTrack - UEM</p>
         <a href="adicionar.html">+ Adicionar filme</a>
         <br>
         <a href="sobre.html">Sobre</a>
+        <p>&copy; 2025 CineTrack</p>
     </footer>
-
-    <p>&copy; 2025 CineTrack</p>
 </body>
 </html>
