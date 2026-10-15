@@ -37,7 +37,8 @@ Neutro: #f2fdff
     --badge-assistindo-texto: #856404;
     --badge-quero-bg: #cfe2ff;
     --badge-quero-texto: #003366;
-
+    --badge-drop-bg: #fee2e2;
+    --badge-drop-texto: #991b1b;
     /* formas e espaçamento */
     --raio: 8px;
     --espaco: 16px;
@@ -306,6 +307,11 @@ footer {
 .badge.quero {
     background-color: var(--badge-quero-bg);
     color: var(--badge-quero-texto);
+}
+
+.badge.drop {
+    background-color: var(--badge-drop-bg);
+    color: var(--badge-drop-texto);
 }
 
 #modal {
