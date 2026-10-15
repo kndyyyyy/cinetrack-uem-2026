@@ -45,7 +45,7 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: clamp(1.2rem, 1rem + 2.5vw, 2.5rem);
     letter-spacing: 2px;
     text-align: center;
 }
@@ -89,18 +89,20 @@ header nav button.ativo {
     color: #dbcbd8
 }
 
+.tela-maior {
+    display: none;
+}
+
 #lista {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
     padding: 16px 24px;
-    justify-content: center;
 }
 
 
 .card {
     font-family: 'Space Grotesk', sans-serif;
-    width: 200px;
     background-color: #ffffff;
     padding: 16px;
     border: 1px solid #dddddd;
@@ -109,6 +111,13 @@ header nav button.ativo {
     display: flex;
     flex-direction: column;
     gap: 6px;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
 .card .acoes {
@@ -202,4 +211,22 @@ footer {
     padding: 8px 16px;
     border-radius: 4px;
     font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+    header h1 {
+        font-size: 3rem;
+    }
+
+    #lista {
+        gap: 24px;
+    }
+
+    .tela-menor {
+        display: none;
+    }
+
+    .tela-maior {
+        display: inline;
+    }
 }
