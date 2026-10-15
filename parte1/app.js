@@ -94,8 +94,56 @@ function renderizarCards(filmes) {
     lista.replaceChildren(frag);
 }
 
-let filmes = [...filmesIniciais];
-renderizarCards(filmes);
+let termoAtual = "";
+let statusAtual = "todos";
+
+function aplicarFiltros(lista, opcoes) {
+    const termo = opcoes.termo.toLowerCase();
+    return lista
+        .filter((f) =>
+            f.titulo.toLowerCase().includes(termo))
+        .filter((f) => opcoes.status === "todos"
+            || f.status === opcoes.status);
+}
+
+function atualizar() {
+    const visiveis = aplicarFiltros(filmes,
+        { termo: termoAtual, status: statusAtual });
+    renderizarCards(visiveis);
+}
+
+function debounce(fn, ms = 300) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), ms);
+    };
+}
+
+const busca =
+    document.querySelector("header input");
+
+const aoDigitar = (e) => {
+    termoAtual = e.target.value;
+    atualizar();
+};
+
+busca.addEventListener("input",
+    debounce(aoDigitar, 300));
+
+const CHAVE = "cinetrack:filmes";
+const salvar = () =>
+    localStorage.setItem(CHAVE,
+        JSON.stringify(filmes));
+function carregar() {
+    const txt = localStorage.getItem(CHAVE);
+    return txt
+        ? JSON.parse(txt)
+        : [...filmesIniciais];
+}
+
+let filmes = carregar();
+atualizar();
 
 lista.addEventListener("click", (e) => {
     const botao = e.target.closest(".btn-remover");
@@ -104,7 +152,8 @@ lista.addEventListener("click", (e) => {
     const card = botao.closest(".card");
     const id = Number(card.dataset.id);
     filmes = filmes.filter((f) => f.id !== id);
-    renderizarCards(filmes);
+    salvar();
+    atualizar();
 });
 
 const nav = document.querySelector("header nav");
@@ -114,9 +163,8 @@ nav.addEventListener("click", (e) => {
     if (!botao) return;
     nav.querySelector(".ativo").classList.remove("ativo");
     botao.classList.add("ativo");
-    const status = botao.dataset.status;
-    renderizarCards(filmes.filter((f) =>
-        status === "todos" || f.status === status));
+    statusAtual = botao.dataset.status;
+    atualizar();
 });
 
 let editandoId = null;
@@ -174,7 +222,8 @@ form.addEventListener("submit", (e) => {
         filmes = [...filmes,
             { id: gerarId(filmes), ...dados }];
     }
-    renderizarCards(filmes);
+    salvar();
+    atualizar();
     fechar();
 });
 
