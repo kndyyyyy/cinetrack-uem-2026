@@ -39,48 +39,48 @@
                 <form id="form-filme">
                     <div class="campo">
                         <label for="titulo">Titulo</label>
-                        <input type="text" value="" required>
+                        <input type="text" id="titulo" name="titulo" value="" required>
                     </div>
 
                     <div class="campo">
                         <label for="ano">Ano</label>
-                        <input type="number" value="" min="1888" max="2030" step="1" required>
+                        <input type="number" id="ano" name="ano" value="" min="1888" max="2030" step="1" required>
                     </div>
 
                     <div class="campo">
                         <label for="genero">Gênero</label>
-                        <input type="text" value="" required>
+                        <input type="text" id="genero" name="genero" value="" required>
                     </div>
 
                     <div class="campo">
-                        <label for="url-poster">URL do poster</label>
-                        <input type="text" value="">
+                        <label for="poster">URL do poster</label>
+                        <input type="text" id="poster" name="poster" value="">
                     </div>
 
                     <div class="campo">
                         <label for="status">Status</label>
-                        <select required>
-                            <option value="">Assistido</option>
-                            <option value="">Assistindo</option>
-                            <option value="">Quero assistir</option>
-                            <option value="">Drop</option>
+                        <select id="status" name="status" required>
+                            <option value="assistido">Assistido</option>
+                            <option value="assistindo">Assistindo</option>
+                            <option value="quero">Quero assistir</option>
+                            <option value="drop">Drop</option>
                         </select>
                     </div>
 
                     <div class="campo">
                         <label for="nota">Nota (1 a 5)</label>
-                        <select>
-                            <option value="">5</option>
-                            <option value="">4</option>
-                            <option value="">3</option>
-                            <option value="">2</option>
-                            <option value="">1</option>
+                        <select id="nota" name="nota">
+                            <option value="5">5</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
                         </select>
                     </div>
 
                     <div class="campo">
                         <label for="comentario">Comentario</label>
-                        <textarea rows="5" cols="40"></textarea>
+                        <textarea id="comentario" name="comentario" rows="5" cols="40"></textarea>
                     </div>
 
                     <div class="form-acoes">
