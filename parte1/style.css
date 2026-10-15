@@ -1,9 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap');
-/*Paletas Cores
-Primária: #564787
-Acento: #dbcbd8
-Neutro: #f2fdff
-*/
 
 :root {
     --cor-primaria: #564787;
@@ -84,13 +79,8 @@ button:focus-visible {
 
 header {
     font-family: 'Cinzel', sans-serif;
-    background-color: var(--cor-primaria);
     color: #ffffff;
-    padding: 24px 16px;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: var(--espaco);
 }
 
 header h1 {
@@ -98,13 +88,6 @@ header h1 {
     font-size: clamp(1.2rem, 1rem + 2.5vw, 2.5rem);
     letter-spacing: 2px;
     text-align: center;
-}
-
-header nav{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
 }
 
 header button {
@@ -121,13 +104,39 @@ header button:hover {
     background-color: var(--cor-acento-hover);
 }
 
-header nav button.ativo {
-    background-color: var(--cor-ativo);
-    color: var(--cor-acento)
+.header-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaco);
+    background-color: var(--cor-primaria);
+    padding: 24px 16px;
 }
 
-header nav button.ativo:hover {
-    background-color: var(--cor-ativo-hover);
+.filtros {
+    button {
+        font-family: 'Space Grotesk', sans-serif;
+        background: var(--cor-acento);
+        color: var(--cor-sobre-acento);
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+
+    button:hover {
+        background-color: var(--cor-acento-hover);
+    }
+
+    button.ativo {
+        background-color: var(--cor-ativo);
+        color: var(--cor-acento)
+    }
+
+    button.ativo:hover {
+        background-color: var(--cor-ativo-hover);
+    }
 }
 
 .barra-pesquisa{
@@ -400,7 +409,7 @@ footer {
     }
 
     .barra-pesquisa,
-    header nav,
+    .filtros,
     .card .acoes,
     footer {
         display: none;
