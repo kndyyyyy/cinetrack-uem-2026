@@ -90,7 +90,7 @@ header h1 {
     text-align: center;
 }
 
-header button {
+.header-btn {
     font-family: 'Space Grotesk', sans-serif;
     background: var(--cor-acento);
     color: var(--cor-sobre-acento);
@@ -100,7 +100,7 @@ header button {
     font-weight: 500;
 }
 
-header button:hover {
+.header-btn:hover {
     background-color: var(--cor-acento-hover);
 }
 
@@ -115,20 +115,6 @@ header button:hover {
 }
 
 .filtros {
-    button {
-        font-family: 'Space Grotesk', sans-serif;
-        background: var(--cor-acento);
-        color: var(--cor-sobre-acento);
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        font-weight: 500;
-    }
-
-    button:hover {
-        background-color: var(--cor-acento-hover);
-    }
-
     button.ativo {
         background-color: var(--cor-ativo);
         color: var(--cor-acento)
