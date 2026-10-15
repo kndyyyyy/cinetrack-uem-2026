@@ -81,6 +81,7 @@ header {
     font-family: 'Cinzel', sans-serif;
     color: #ffffff;
     flex-direction: column;
+    gap: var(--espaco);
 }
 
 header h1 {
@@ -109,12 +110,12 @@ header h1 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: var(--espaco);
     background-color: var(--cor-primaria);
-    padding: 24px 16px;
+    padding: 8px 16px 20px 16px;
 }
 
 .filtros {
+    gap: 8px;
     button.ativo {
         background-color: var(--cor-ativo);
         color: var(--cor-acento)
