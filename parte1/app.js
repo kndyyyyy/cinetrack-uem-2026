@@ -22,7 +22,7 @@ const filmesIniciais = [
     { id: 2, titulo: "Parasita", ano: 2019,
       genero: "Comédia, Thriller e Drama",
       poster: "https://www.themoviedb.org/t/p/w600_and_h900_face/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg",
-      nota: 4, status: "assistido", comentario: "" },
+      nota: 4, status: "drop", comentario: "" },
     { id: 3, titulo: "O Auto da Compadecida", ano: 2000,
       genero: "Comédia, Drama, Fantasia e Romance",
       poster: "https://www.themoviedb.org/t/p/w600_and_h900_face/imcOp1kJsCsAFCoOtY5OnPrFbAf.jpg",
