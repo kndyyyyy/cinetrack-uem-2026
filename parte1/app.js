@@ -14,6 +14,10 @@ const estrelas = (nota) => {
     return resultado;
 };
 
+const TOTAL = 6;
+document.querySelector("footer small").textContent =
+    `CineTrack © 2026 · ${TOTAL} filmes cadastrados`;
+
 const filmesIniciais = [
     { id: 1, titulo: "A Origem", ano: 2010,
       genero: "Ação, Ficção científica e Aventura",
@@ -41,6 +45,8 @@ const filmesIniciais = [
       nota: 4, status: "quero", comentario: "" }
 ];
 
+const lista = document.querySelector("#lista");
+
 function renderizarCards(filmes) {
     const cards = filmes.map((f) => `
         <article class="card" data-id="${f.id}">
@@ -50,15 +56,34 @@ function renderizarCards(filmes) {
             <p>Nota: ${estrelas(f.nota)}</p>
             <span class="badge ${f.status}">${rotuloStatus(f.status)}</span>
             <div class="acoes">
-                <button type="button">Editar</button>
-                <button type="button">Remover</button>
+                <button type="button" class="btn-editar">Editar</button>
+                <button type="button" class="btn-remover">Remover</button>
             </div>
         </article>`).join("");
     lista.innerHTML = cards;
 }
 
-renderizarCards(filmesIniciais);
+let filmes = [...filmesIniciais];
+renderizarCards(filmes);
 
-const TOTAL = 6;
-document.querySelector("footer small").textContent =
-    `CineTrack © 2026 · ${TOTAL} filmes cadastrados`;
+lista.addEventListener("click", (e) => {
+    const botao = e.target.closest(".btn-remover");
+    if (!botao) return;
+    if (!confirm("Remover este filme?")) return;
+    const card = botao.closest(".card");
+    const id = Number(card.dataset.id);
+    filmes = filmes.filter((f) => f.id !== id);
+    renderizarCards(filmes);
+});
+
+const nav = document.querySelector("header nav");
+
+nav.addEventListener("click", (e) => {
+    const botao = e.target.closest("button");
+    if (!botao) return;
+    nav.querySelector(".ativo").classList.remove("ativo");
+    botao.classList.add("ativo");
+    const status = botao.dataset.status;
+    renderizarCards(filmes.filter((f) =>
+        status === "todos" || f.status === status));
+});
