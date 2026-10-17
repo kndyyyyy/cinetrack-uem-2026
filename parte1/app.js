@@ -156,7 +156,7 @@ lista.addEventListener("click", (e) => {
     atualizar();
 });
 
-const nav = document.querySelector("header nav");
+const nav = document.querySelector("#filmes-filtros");
 
 nav.addEventListener("click", (e) => {
     const botao = e.target.closest("button");
