@@ -1,17 +1,21 @@
+import { useState } from 'react';
 import './App.css'
 import { Filtros } from './components/Filtros';
 import ListaFilmes from './components/ListaFilmes';
 import Rodape from './components/Rodape';
-import Titulo from './components/Titulo'
 import { filmesIniciais } from './data/filmes';
+import Cabecalho from './components/Cabecalho';
 
 function App() {
+  const [status, setStatus] = useState("todos");
+  const [busca, setBusca] = useState("");
+
   return (
     <section>
-      <Titulo />
-      <Filtros />
+      <Cabecalho busca={busca} mudarBusca={setBusca} />
+      <Filtros ativo={status} aoMudar={setStatus}/>
       <section>
-        <ListaFilmes filmes={filmesIniciais} />
+        <ListaFilmes filmes={filmesIniciais} status={status} busca={busca}/>
       </section>
       <Rodape />
     </section>

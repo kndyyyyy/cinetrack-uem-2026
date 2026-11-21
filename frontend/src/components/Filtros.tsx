@@ -1,11 +1,25 @@
-export function Filtros() {
+import { ROTULOS } from "../data/filmes";
+
+let STATUS:{ [key: string]: string } = {
+    todos: "Todos",
+    ...ROTULOS
+}
+
+type FiltrosProps = {
+    ativo: string,
+    aoMudar: React.Dispatch<React.SetStateAction<string>>
+}
+
+export function Filtros(props:FiltrosProps) {
     return (
         <nav aria-label="Filtros de status" className="filtros header-box" id="filmes-filtros">
-            <button className="header-btn ativo" data-status="todos">Todos</button>
-            <button className="header-btn" data-status="assistido">Assistido</button>
-            <button className="header-btn" data-status="assistindo">Assistindo</button>
-            <button className="header-btn" data-status="quero">Quero assistir</button>
-            <button className="header-btn" data-status="drop">Dropado</button>
+            {Object.keys(STATUS).map((key)=>{
+                return (
+                    <button key={key} className={`header-btn ${props.ativo == key ? "ativo" : ""}`} data-status={key} onClick={() => props.aoMudar(key)}>
+                        {STATUS[key]}
+                    </button>
+                )
+            })}
         </nav> 
     );
 }
