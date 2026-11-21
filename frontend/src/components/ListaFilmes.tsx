@@ -1,12 +1,21 @@
 import CardFilme from "./CardFilme";
 import type { Filme } from "../data/model/filme";
 
+type ListaFilmesProps = {
+    filmes: Filme[],
+    status: string,
+    busca: string
+}
 
-export default function ListaFilmes({ filmes }: { filmes: Filme[] }) {
+export default function ListaFilmes(props:ListaFilmesProps) {
+    const filtrado = (props.status === "todos" ? props.filmes :
+        props.filmes.filter((f:Filme) => f.status == props.status))
+        .filter((f:Filme) => f.titulo.toLowerCase().includes(props.busca.toLowerCase()));
+
     return (
         <section id="lista" aria-live="polite">
-            {filmes.length > 0 ? (
-                filmes.map((filme) => (
+            {filtrado.length > 0 ? (
+                filtrado.map((filme) => (
                     <CardFilme key={filme.id} filme={filme} />
                 ))
             ) : (
