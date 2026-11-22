@@ -3,6 +3,7 @@ import { debounce } from "../data/util";
 type BarraPesquisaProps = {
     busca: string,
     mudarBusca: React.Dispatch<React.SetStateAction<string>>
+    adicionarFilme: () => void
 }
 
 export default function BarraPesquisa(props:BarraPesquisaProps) {
@@ -11,7 +12,7 @@ export default function BarraPesquisa(props:BarraPesquisaProps) {
     return (
         <div className="barra-pesquisa">
             <input type="search" aria-label="Buscar filme" onChange={(e) => { debouncedMudarBusca(e.target.value); }}/>
-            <button type="button" className="header-btn"><span className="tela-menor">+</span><span className="tela-maior">+ Adicionar filme</span></button>
+            <button type="button" onClick={() => {props.adicionarFilme()}} className="header-btn"><span className="tela-menor">+</span><span className="tela-maior">+ Adicionar filme</span></button>
         </div>
     );  
 }

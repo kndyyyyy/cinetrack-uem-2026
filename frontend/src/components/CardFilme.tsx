@@ -3,19 +3,21 @@ import { Filme } from "../data/model/filme.ts";
 
 type CardProps = {
     filme: Filme;
+    editarAcao?: (filme: Filme) => void;
+    removerAcao?: (filme: Filme) => void;
 };
 
-export default function CardFilme({ filme }: CardProps) {
+export default function CardFilme(props: CardProps) {
     return (
-        <article id={`card-filme-${filme.id}`} className="card">
-            <img src={filme.poster} alt={`Poster do filme ${filme.titulo}`} />
-            <h2>{filme.titulo}</h2>
-            <p>{`${filme.ano} · ${filme.genero}`}</p>
-            <p>{`Nota: ${estrelas(filme.nota)}`}</p>
-            <span className={`badge ${filme.status}`}>{ROTULOS[filme.status]}</span>
+        <article id={`card-filme-${props.filme.id}`} className="card">
+            <img src={props.filme.poster} alt={`Poster do filme ${props.filme.titulo}`} />
+            <h2>{props.filme.titulo}</h2>
+            <p>{`${props.filme.ano} · ${props.filme.genero}`}</p>
+            <p>{`Nota: ${estrelas(props.filme.nota)}`}</p>
+            <span className={`badge ${props.filme.status}`}>{ROTULOS[props.filme.status]}</span>
             <div className="acoes">
-                <button className="btn-editar" type="button">Editar</button>
-                <button className="btn-remover" type="button">Remover</button>
+                <button className="btn-editar" type="button" onClick={() => {props.editarAcao?.(props.filme)}}>Editar</button>
+                <button className="btn-remover" type="button" onClick={() => {props.removerAcao?.(props.filme)}}>Remover</button>
             </div>
         </article>
     )
