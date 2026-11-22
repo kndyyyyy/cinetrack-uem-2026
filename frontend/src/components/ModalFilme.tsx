@@ -16,7 +16,7 @@ type ModalFilmeProps = {
 
 export default function ModalFilme(props: ModalFilmeProps) {
     let formulario:{[key:string]: any} = 
-        props.filme ? {...props.filme} : {...new Filme()};
+        props.filme ? {...props.filme} : new Filme(0, "", 2000, "", "", 1, "quero", "");
     
     function atualizar(campo:string, valor:any) {
         formulario[campo] = valor
@@ -40,7 +40,7 @@ export default function ModalFilme(props: ModalFilmeProps) {
                     <div className="campo">
                         <label htmlFor="ano">Ano</label>
                         <input type="number" id="ano" name="ano" defaultValue={Number.parseInt(formulario.ano)} min="1888" max="2030" step="1" required
-                               onChange={(e) => {atualizar("ano", e.currentTarget.value)}}/>
+                               onChange={(e) => {atualizar("ano", Number(e.currentTarget.value))}}/>
                     </div>
 
                     <div className="campo">
@@ -69,7 +69,7 @@ export default function ModalFilme(props: ModalFilmeProps) {
 
                     <div className="campo">
                         <label htmlFor="nota">Nota (1 a 5)</label>
-                        <select id="nota" name="nota" defaultValue={formulario.nota} onChange={(e) => {atualizar("nota", e.currentTarget.value)}}>
+                        <select id="nota" name="nota" defaultValue={formulario.nota} onChange={(e) => {atualizar("nota", Number(e.currentTarget.value))}}>
                             <option value="5">5</option>
                             <option value="4">4</option>
                             <option value="3">3</option>
