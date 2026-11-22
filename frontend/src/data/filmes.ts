@@ -23,3 +23,7 @@ export function estrelas(nota: number): string {
     }
     return resultado;
 }
+
+export function gerarId(filmes: Filme[]): number {
+    return filmes.length > 0 ? Math.max(...filmes.map(f => f.id)) + 1 : 1;
+}
