@@ -1,9 +1,9 @@
 import BarraPesquisa from "./BarraPesquisa";
 
 type CabecalhoProps = {
-    busca?: string,
-    mudarBusca?: React.Dispatch<React.SetStateAction<string>>,
-    adicionarFilme?: () => void
+    busca: string,
+    mudarBusca: React.Dispatch<React.SetStateAction<string>>,
+    adicionarFilme: () => void
 }
 export default function Cabecalho(props:CabecalhoProps) {
     return (
@@ -11,9 +11,11 @@ export default function Cabecalho(props:CabecalhoProps) {
             <h1>CineTrack</h1>
             <p>Sua biblioteca de filmes!</p>
 
-            {props.busca && props.mudarBusca && props.adicionarFilme ? 
-                <BarraPesquisa busca={props.busca} mudarBusca={props.mudarBusca} adicionarFilme={props.adicionarFilme}/> 
-            : ""}
+            <BarraPesquisa
+                busca={props.busca}
+                mudarBusca={props.mudarBusca}
+                adicionarFilme={props.adicionarFilme}
+            />
         </header>
     );
 }

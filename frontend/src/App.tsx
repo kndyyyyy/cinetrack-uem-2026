@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { Filtros } from './components/Filtros';
 import ListaFilmes from './components/ListaFilmes';
 import Rodape from './components/Rodape';
-import { gerarId } from './data/filmes';
 import Cabecalho from './components/Cabecalho';
 import ModalFilme, { ModalFilmeModo } from './components/ModalFilme';
 import type { Filme } from './data/model/filme';
-import { listar } from './api';
+import { atualizar as atualizarFilme, criar, listar, remover } from './api';
 import Spinner from './components/Spinner';
 
 function App() {
@@ -18,6 +17,7 @@ function App() {
   const [filmes, setFilmes] = useState(new Array<Filme>());
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState<string | undefined>(undefined);
+  const [erroOperacao, setErroOperacao] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     listar().then((filmes) => {
@@ -34,19 +34,29 @@ function App() {
     document.title = `CineTrack (${filmes.length})`
   }, [filmes.length])
 
-  function salvarFilme(f:Filme) {
-    if (modalModo === ModalFilmeModo.ADICIONAR) f.id = gerarId(filmes);
-
-    let novosFilmes = modalModo === ModalFilmeModo.EDITAR ? 
-        filmes.map((filme) => filme.id === f.id ? f : filme) : [...filmes, f];
-    setFilmes(novosFilmes);
-    ocultarModal();
+  async function salvarFilme(f:Filme) {
+    try {
+      setErroOperacao(undefined);
+      const filmeSalvo = modalModo === ModalFilmeModo.EDITAR
+        ? await atualizarFilme(f)
+        : await criar(f);
+      setFilmes((atuais) => modalModo === ModalFilmeModo.EDITAR
+        ? atuais.map((filme) => filme.id === filmeSalvo.id ? filmeSalvo : filme)
+        : [...atuais, filmeSalvo]);
+      ocultarModal();
+    } catch (erro) {
+      setErroOperacao(erro instanceof Error ? erro.message : 'Erro ao salvar o filme.');
+    }
   }
 
-  function removerFilme(f:Filme) {
-    let novosFilmes = filmes.filter((filme) => filme.id !== f.id);
-    setFilmes(novosFilmes);
-    ocultarModal();
+  async function removerFilme(f:Filme) {
+    try {
+      setErroOperacao(undefined);
+      await remover(f.id);
+      setFilmes((atuais) => atuais.filter((filme) => filme.id !== f.id));
+    } catch (erro) {
+      setErroOperacao(erro instanceof Error ? erro.message : 'Erro ao remover o filme.');
+    }
   }
   
   function ocultarModal() {
@@ -95,11 +105,12 @@ function App() {
       <Cabecalho busca={busca} mudarBusca={setBusca} adicionarFilme={() => { setModalModo(ModalFilmeModo.ADICIONAR); }} />
       <Filtros ativo={status} aoMudar={setStatus} />
       
+      {erroOperacao && <p role="alert">{erroOperacao}</p>}
       {montarCorpoPagina()}
 
       <Rodape />
       <ModalFilme 
-          key={modalModo}
+          key={`${modalModo}-${modalFilme?.id ?? 'novo'}`}
           modo={modalModo} 
           filme={modalFilme}
           aoSalvar={(f:Filme) => salvarFilme(f)} 
