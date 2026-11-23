@@ -7,6 +7,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const ARQUIVO = path.join(__dirname, '..', 'data', 'filmes.json');
 
+export function lerFilmes(): Filme[] {
+  return JSON.parse(fs.readFileSync(ARQUIVO, 'utf8')) as Filme[];
+}
+
 export function salvarFilmes(filmes: Filme[]): void {
   fs.mkdirSync(path.dirname(ARQUIVO), { recursive: true });
   fs.writeFileSync(ARQUIVO, JSON.stringify(filmes, null, 2), 'utf8');
