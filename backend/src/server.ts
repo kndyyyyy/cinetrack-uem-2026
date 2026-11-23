@@ -43,7 +43,7 @@ app.post('/filmes', (req, res) => {
   }
 
   const lista = lerFilmes();
-  const novo = { id: gerarId(lista), ...dados };
+  const novo = { ...dados, id: gerarId(lista) };
 
   lista.push(novo);
   salvarFilmes(lista);
@@ -83,4 +83,3 @@ app.delete('/filmes/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`API CineTrack na porta ${PORT}`);
 });
-
