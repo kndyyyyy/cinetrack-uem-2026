@@ -2,7 +2,6 @@ import express from 'express';
 import morgan from 'morgan';
 import { gerarId, lerFilmes, salvarFilmes} from './db.js';
 import cors from 'cors';
-import type { Filme } from './types.js';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
