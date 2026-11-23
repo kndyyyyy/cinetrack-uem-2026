@@ -15,3 +15,9 @@ export function salvarFilmes(filmes: Filme[]): void {
   fs.mkdirSync(path.dirname(ARQUIVO), { recursive: true });
   fs.writeFileSync(ARQUIVO, JSON.stringify(filmes, null, 2), 'utf8');
 }
+
+export function gerarId(filmes: Filme[]): number {
+  return filmes.length > 0
+    ? Math.max(...filmes.map((filme) => filme.id)) + 1
+    : 1;
+}
