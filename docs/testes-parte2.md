@@ -96,7 +96,7 @@ Resultado:
 ```text
 Passou. O seed gerou 6 filmes, a API respondeu com os 6 filmes,
 o typecheck do backend passou e o build do frontend passou.
-Repetir o teste após o merge da PR para a validação final.
+Passou também em clone limpo da tag v2.0 após o merge.
 ```
 
 ## Observações
