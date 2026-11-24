@@ -48,3 +48,8 @@ defina `VITE_API_URL` no ambiente do frontend antes de iniciar o Vite.
 Os filmes são armazenados em `backend/data/filmes.json`. Para restaurar os seis filmes de
 exemplo, execute `npm run seed` no diretório `backend`. O arquivo `backend/.env` é local
 e não deve ser enviado ao repositório; use `backend/.env.example` como modelo.
+
+## Documentação
+
+- [API](docs/api.md)
+- [Testes da Parte 2](docs/testes-parte2.md)
