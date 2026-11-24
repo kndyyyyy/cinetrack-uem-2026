@@ -2,6 +2,8 @@ import express from 'express';
 import morgan from 'morgan';
 import { gerarId, lerFilmes, salvarFilmes} from './db.js';
 import cors from 'cors';
+import { STATUS } from './types.js';
+import type { Filme, FilmeInput, Status } from './types.js';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -9,6 +11,39 @@ const PORT = Number(process.env.PORT) || 3000;
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
+
+function statusValido(status: unknown): status is Status {
+  return typeof status === 'string' &&
+    (STATUS as readonly string[]).includes(status);
+}
+
+function validarFilme(dados: Partial<FilmeInput>): string[] {
+  const erros: string[] = [];
+
+  if (!dados.titulo) {
+    erros.push('titulo obrigatório');
+  }
+
+  const ano = Number(dados.ano);
+
+  if (!dados.ano) {
+    erros.push('ano obrigatório');
+  } else if (!Number.isFinite(ano) || ano < 1888 || ano > 2030) {
+    erros.push('ano deve estar entre 1888 e 2030');
+  }
+
+  const nota = Number(dados.nota);
+
+  if (!Number.isFinite(nota) || nota < 1 || nota > 5) {
+    erros.push('nota deve estar entre 1 e 5');
+  }
+
+  if (!statusValido(dados.status)) {
+    erros.push('status inválido');
+  }
+
+  return erros;
+}
 
 app.get('/filmes', (req, res) => {
   const status = typeof req.query.status === 'string'
@@ -36,14 +71,25 @@ app.get('/filmes/:id', (req, res) => {
 });
 
 app.post('/filmes', (req, res) => {
-  const dados = req.body;
+  const dados = req.body as Partial<FilmeInput>;
+  const erros = validarFilme(dados);
 
-  if (!dados.titulo || !dados.ano) {
-    return res.status(400).json({ erro: 'Dados obrigatórios' });
+  if (erros.length > 0) {
+    return res.status(400).json({ erros });
   }
 
   const lista = lerFilmes();
-  const novo = { ...dados, id: gerarId(lista) };
+
+  const novo: Filme = {
+    id: gerarId(lista),
+    titulo: String(dados.titulo),
+    ano: Number(dados.ano),
+    genero: String(dados.genero ?? ''),
+    poster: String(dados.poster ?? ''),
+    nota: Number(dados.nota),
+    status: dados.status as Status,
+    comentario: String(dados.comentario ?? '')
+  };
 
   lista.push(novo);
   salvarFilmes(lista);
@@ -60,8 +106,19 @@ app.put('/filmes/:id', (req, res) => {
     return res.status(404).json({ erro: 'Filme não encontrado' });
   }
 
-  lista[i] = { ...lista[i], ...req.body, id };
+  const atualizado: Filme = {
+    ...lista[i],
+    ...req.body,
+    id
+  };
 
+  const erros = validarFilme(atualizado);
+
+  if (erros.length > 0) {
+    return res.status(400).json({ erros });
+  }
+
+  lista[i] = atualizado;
   salvarFilmes(lista);
 
   res.json(lista[i]);
