@@ -14,10 +14,12 @@ async function requisitar<T>(rota: string, opcoes?: RequestInit): Promise<T> {
     if (!resposta.ok) {
         let mensagem = `Erro na requisição (${resposta.status})`;
         try {
-            const dados: { erro?: string } = await resposta.json();
-            mensagem = dados.erro || mensagem;
+            const dados: { erro?: string; erros?: string[] } = await resposta.json();
+            mensagem = dados.erro
+            ?? dados.erros?.join(' | ')
+            ?? mensagem;
         } catch {
-            // Mantém a mensagem HTTP quando a resposta não contém JSON.
+            // Mantém a mensagem HTTP.
         }
         throw new Error(mensagem);
     }
